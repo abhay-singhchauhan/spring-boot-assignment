@@ -14,7 +14,7 @@ A robust, enterprise-grade **RESTful Backend API** for a **Student Management Sy
 > ### 🖥️ Companion Frontend Available!
 > A fully interactive, responsive **Frontend Web Application** has been built in parallel to demonstrate, visualize, and thoroughly test every single feature of this API interactively. You can log in as an Admin, register/validate as a Student, assign courses, update profiles, and manage enrollments through a polished, modern interface. 
 > 
-> *Please refer to the companion frontend repository (`school-management-frontend`) to run the client app side-by-side with this API.*
+> *Please refer to the companion frontend repository (`[school-management-frontend](https://github.com/abhay-singhchauhan/spring-boot-assignment-frontend/tree/master)`) to run the client app side-by-side with this API.*
 
 ---
 
