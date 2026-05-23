@@ -16,7 +16,9 @@ import java.util.List;
 public class Student {
 
     @Id
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
 
     @Column(nullable = false)
     private String name;
@@ -24,8 +26,12 @@ public class Student {
     @Column(nullable = false, unique = true)
     private String studentCode;
 
+    @Column(nullable = false)
     private LocalDate dateOfBirth;
+
+    @Column(nullable = false)
     private String gender;
+
     private String email;
     private String mobileNumber;
     private String fatherName;

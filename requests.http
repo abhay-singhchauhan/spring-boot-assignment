@@ -1,4 +1,123 @@
-### GET request to example server
-GET http://localhost:8080
+### Admin login — copy accessToken into @adminToken for admin APIs
+POST http://localhost:8080/api/auth/admin/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
 
 ###
+### Student validation — copy accessToken into @studentToken for student APIs
+POST http://localhost:8080/api/auth/student/validate
+Content-Type: application/json
+
+{
+  "studentCode": "STU001",
+  "dateOfBirth": "2005-08-12"
+}
+
+###
+@adminToken = paste-admin-jwt-here
+
+POST http://localhost:8080/api/admin/student
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "name": "Abg",
+  "dateOfBirth": "2005-08-12",
+    "gender": "MALE",
+  "studentCode": "STU001",
+  "addresses": [
+    {
+      "type": "PERMANENT",
+      "street": "12 MG Road",
+      "city": "Mumbai",
+      "state": "MH",
+      "pincode": "400001"
+    },
+    {
+      "type": "CURRENT",
+      "street": "78 Park St",
+      "city": "Pune",
+      "state": "MH",
+      "pincode": "411001"
+    }
+  ]
+}
+
+###
+POST http://localhost:8080/api/admin/course
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "courseName": "Bachelor of Computer Applications",
+  "description": "Undergraduate program focused on computer science and software development.",
+  "courseType": "Full Time",
+  "duration": "3 Years",
+  "topics": "Java, Spring Boot, Database Management, Data Structures, Web Development"
+}
+
+###
+GET http://localhost:8080/api/admin/courses
+Authorization: Bearer {{adminToken}}
+
+###
+POST http://localhost:8080/api/admin/student/1/course/1
+Authorization: Bearer {{adminToken}}
+
+###
+GET http://localhost:8080/api/admin/students/search?name=Abhay
+Authorization: Bearer {{adminToken}}
+
+###
+GET http://localhost:8080/api/admin/students/by-course/1
+Authorization: Bearer {{adminToken}}
+
+###
+@studentToken = paste-student-jwt-here
+
+GET http://localhost:8080/api/student/profile
+Authorization: Bearer {{studentToken}}
+
+###
+PUT http://localhost:8080/api/student/profile
+Authorization: Bearer {{studentToken}}
+Content-Type: application/json
+
+{
+  "email": "abhay@example.com",
+  "mobileNumber": "9876543210",
+  "fatherName": "Father Name",
+  "motherName": "Mother Name",
+  "addresses": [
+    {
+      "type": "PERMANENT",
+      "street": "12 MG Road",
+      "city": "Mumbai",
+      "state": "MH",
+      "pincode": "400001"
+    },
+    {
+      "type": "CURRENT",
+      "street": "78 Park St",
+      "city": "Pune",
+      "state": "MH",
+      "pincode": "411001"
+    }
+  ]
+}
+
+###
+GET http://localhost:8080/api/student/courses
+Authorization: Bearer {{studentToken}}
+
+###
+GET http://localhost:8080/api/student/courses?topic=Java
+Authorization: Bearer {{studentToken}}
+
+###
+DELETE http://localhost:8080/api/student/courses/1
+Authorization: Bearer {{studentToken}}
