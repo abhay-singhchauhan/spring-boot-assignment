@@ -194,10 +194,3 @@ We have included a fully configured **`requests.http`** file in the root of this
 | `GET` | `/api/student/courses` | Lists assigned courses (supports filtering by topic) | `?topic=Java` (Optional) |
 | `DELETE` | `/api/student/courses/{courseId}` | Voluntarily leaves/unregisters from a course | Dynamic path variable |
 
----
-
-## 🔒 Originality & Plagiarism Statement
-
-This system has been built in full compliance with the Recruitment standards. Every layer, authentication filter, relationship mapping, and service method has been crafted specifically for this evaluation from the ground up, ensuring original, high-performance, and plagiarism-free source code.
-
-For any deployment queries or questions regarding this backend, please feel free to reach out to the contacts listed in the assignment sheet! 🎓
